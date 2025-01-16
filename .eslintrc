@@ -1,0 +1,16 @@
+{
+  "extends": ["airbnb", "airbnb-typescript", "prettier"],
+  "plugins": ["prettier", "storybook"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react/no-children-prop": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/require-default-props": 0,
+    "import/prefer-default-export": 0,
+    "react/jsx-props-no-spreading": 0,
+    "import/no-extraneous-dependencies": 0,
+    "jsx-a11y/label-has-associated-control": 0
+  }
+}
