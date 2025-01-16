@@ -25,7 +25,16 @@ The library provides components that allow you to easily create custom component
 ## Installation
 
 To install the library, run:
-`npm install react-transitioning`
+
+```bash
+npm install react-transitioning
+# or
+yarn add react-transitioning
+```
+
+## Documentation
+
+For more detailed information and usage examples, check out the [Docs](https://fakundo.github.io/react-transitioning/).
 
 ## Usage
 
