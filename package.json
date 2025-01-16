@@ -1,6 +1,6 @@
 {
   "name": "react-transitioning",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "React components for easily implementing basic CSS animations and transitions",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -16,7 +16,7 @@
   "scripts": {
     "prepare": "husky",
     "prepublishOnly": "yarn run lint && yarn run build",
-    "lint": "eslint src && eslint examples",
+    "lint": "eslint src && eslint stories",
     "watch": "tsup --watch",
     "build": "tsup --clean",
     "dev": "storybook dev -p 6006",

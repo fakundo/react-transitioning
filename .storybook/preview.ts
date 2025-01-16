@@ -13,7 +13,7 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Intro',
+          'Introduction',
           'Examples',
           ['Basic Transition', 'Fade Transition', ['Inline Styles']],
           'Components',
