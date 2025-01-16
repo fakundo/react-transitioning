@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as o}from"./index-3LwI-BAG.js";import{M as a,S as s,C as r}from"./index-421-uJMs.js";import{Default as c}from"./FadeTransitionClassNames.stories-CK8a88Ci.js";import"./index-B-SYruCi.js";import"./iframe-BV7mTgF-.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./CSSTransition-B8Ww_fk3.js";const d=`import { CSSTransition, CSSTransitionProps } from 'react-transitioning';
+import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as o}from"./index-3LwI-BAG.js";import{M as a,S as s,C as r}from"./index-51TOBH7o.js";import{Default as c}from"./FadeTransitionClassNames.stories-CK8a88Ci.js";import"./index-B-SYruCi.js";import"./iframe-DqGydh4t.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./CSSTransition-B8Ww_fk3.js";const d=`import { CSSTransition, CSSTransitionProps } from 'react-transitioning';
 import './CSSFadeTransition.css';
 
 export type FadeTransitionProps = Omit<CSSTransitionProps, 'classNames'>;
@@ -30,7 +30,7 @@ export function FadeTransition(props: FadeTransitionProps) {
 .fade-exit-done {
   opacity: 0;
 }
-`;function t(i){const e={code:"code",h1:"h1",h2:"h2",li:"li",ol:"ol",p:"p",pre:"pre",strong:"strong",ul:"ul",...o(),...i.components};return n.jsxs(n.Fragment,{children:[n.jsx(a,{title:"Examples/Fade Transition/Class Names"}),`
+`;function t(i){const e={a:"a",code:"code",h1:"h1",h2:"h2",li:"li",ol:"ol",p:"p",pre:"pre",strong:"strong",ul:"ul",...o(),...i.components};return n.jsxs(n.Fragment,{children:[n.jsx(a,{title:"Examples/Fade Transition/Class Names"}),`
 `,n.jsx(e.h1,{id:"fade-transition-with-class-names",children:"Fade Transition with Class Names"}),`
 `,n.jsxs(e.p,{children:["This example demonstrates how to create a fade transition using the ",n.jsx(e.code,{children:"CSSTransition"})," component with class names for styling."]}),`
 `,n.jsx(e.h2,{id:"code-example",children:"Code Example"}),`
@@ -69,4 +69,6 @@ export function FadeTransition(props: FadeTransitionProps) {
 `]}),`
 `,n.jsx(e.h2,{id:"live-demo",children:"Live Demo"}),`
 `,n.jsxs(e.p,{children:["Check out the live demo below to see the ",n.jsx(e.code,{children:"FadeTransition"})," in action:"]}),`
-`,n.jsx(r,{of:c})]})}function T(i={}){const{wrapper:e}={...o(),...i.components};return e?n.jsx(e,{...i,children:n.jsx(t,{...i})}):t(i)}export{T as default};
+`,n.jsx(r,{of:c}),`
+`,n.jsx(e.h2,{id:"source-code",children:"Source Code"}),`
+`,n.jsxs(e.p,{children:["The source code for this example is available on ",n.jsx(e.a,{href:"https://github.com/fakundo/react-transitioning/blob/main/stories/examples/FadeTransitionClassNames.stories.tsx",rel:"nofollow",children:"GitHub"}),"."]})]})}function S(i={}){const{wrapper:e}={...o(),...i.components};return e?n.jsx(e,{...i,children:n.jsx(t,{...i})}):t(i)}export{S as default};
