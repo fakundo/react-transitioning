@@ -165,7 +165,7 @@ export function Transition(props: TransitionProps) {
           tmRef.current = setTimeout(setPhase, duration, nextPhase);
         }
       } else {
-        setPhase(nextPhase);
+        tmRef.current = setTimeout(setPhase, 0, nextPhase);
       }
     }
     return () => {

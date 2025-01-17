@@ -7,7 +7,6 @@ export default create({
   brandUrl: 'https://fakundo.github.io/react-transitioning/',
   brandImage: undefined,
   brandTarget: '_self',
-
   appContentBg: '#1B1C1D',
   appPreviewBg: '#1B1C1D',
 });
