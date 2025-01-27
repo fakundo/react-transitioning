@@ -1,4 +1,4 @@
-import { cloneElement, Children, useMemo } from 'react';
+import { cloneElement, useMemo, isValidElement } from 'react';
 import { TransitionPhase, TransitionProps, Transition } from './Transition';
 
 /**
@@ -43,18 +43,22 @@ type StyleTransitionChildProps = Pick<StyleTransitionProps, 'children' | 'styles
   phase: TransitionPhase;
 };
 
-const StyleTransitionChild = (props: StyleTransitionChildProps) => {
+function StyleTransitionChild(props: StyleTransitionChildProps) {
   const { children, styles, phase } = props;
-  const child = Children.only(children);
-  const { style: childStyle } = child.props;
+
+  if (!isValidElement(children)) {
+    return null;
+  }
+
+  const { style: childStyle } = children.props;
 
   const finalStyle = useMemo(
     () => ({ ...childStyle, ...makePhaseStyle(phase, styles) }),
     [childStyle, styles, phase],
   );
 
-  return cloneElement(child, { style: finalStyle });
-};
+  return cloneElement(children, { style: finalStyle });
+}
 
 /**
  * The `StyleTransition` component allows you to animate the styles of a component across different

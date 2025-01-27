@@ -126,7 +126,7 @@ import { TransitionGroup } from 'react-transitioning'
 
 ```ts
 type TransitionProps = {
-  children: (transitionState: TransitionState, activePhase: TransitionPhase) => React.ReactNode;
+  children: React.ReactNode | ((transitionState: TransitionState, activePhase: TransitionPhase) => React.ReactNode);
   in?: boolean;
   appear?: boolean;
   enter?: boolean;

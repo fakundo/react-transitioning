@@ -1,4 +1,4 @@
-import { Children, cloneElement, useMemo } from 'react';
+import { cloneElement, isValidElement, useMemo } from 'react';
 import { Transition, TransitionPhase, TransitionProps } from './Transition';
 
 /**
@@ -67,18 +67,22 @@ type CSSTransitionChildProps = Pick<CSSTransitionProps, 'children' | 'classNames
   phase: TransitionPhase;
 };
 
-const CSSTransitionChild = (props: CSSTransitionChildProps) => {
+function CSSTransitionChild(props: CSSTransitionChildProps) {
   const { children, classNames, phase } = props;
-  const child = Children.only(children);
-  const { className: childClassName } = child.props;
+
+  if (!isValidElement(children)) {
+    return null;
+  }
+
+  const { className: childClassName } = children.props;
 
   const finalClassName = useMemo(
     () => joinClassNames(childClassName, makeClassName(phase, classNames)),
     [childClassName, classNames, phase],
   );
 
-  return cloneElement(child, { className: finalClassName });
-};
+  return cloneElement(children, { className: finalClassName });
+}
 
 /**
  * The `CSSTransition` component applies CSS transitions based on the phase of a transition lifecycle.

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useIsoEffect } from './useIsoEffect';
 
 /**
@@ -101,7 +101,9 @@ export type TransitionProps = {
    * @param activePhase - The phase currently in progress (e.g., "appearActive", "enterDone").
    * @returns React nodes to render.
    */
-  children: (transitionState: TransitionState, activePhase: TransitionPhase) => React.ReactNode;
+  children:
+    | React.ReactNode
+    | ((transitionState: TransitionState, activePhase: TransitionPhase) => React.ReactNode);
 };
 
 const EVENT_MAP: {
@@ -136,7 +138,6 @@ export function Transition(props: TransitionProps) {
     addEndListener,
   } = props;
 
-  const tmRef = useRef<number>(0);
   let ignoreInPropChange = false;
 
   // Make phase state
@@ -157,19 +158,20 @@ export function Transition(props: TransitionProps) {
     const [eventName, nextPhase, delay] = EVENT_MAP[phase];
     const { [eventName]: event } = props;
     event?.();
+    let tm = 0;
     if (nextPhase) {
       if (delay) {
         if (addEndListener) {
           addEndListener(phase, () => setPhase(nextPhase));
         } else {
-          tmRef.current = setTimeout(setPhase, duration, nextPhase);
+          tm = setTimeout(setPhase, duration, nextPhase);
         }
       } else {
-        tmRef.current = setTimeout(setPhase, 0, nextPhase);
+        tm = setTimeout(setPhase, 0, nextPhase);
       }
     }
     return () => {
-      clearTimeout(tmRef.current);
+      clearTimeout(tm);
     };
   }, [phase, duration]);
 
@@ -195,10 +197,10 @@ export function Transition(props: TransitionProps) {
   );
 
   // Do not render anything
-  if (!alwaysMounted && phase === TransitionPhase.EXIT_DONE) {
+  if (!alwaysMounted && (exit ? phase === TransitionPhase.EXIT_DONE : !inProp)) {
     return null;
   }
 
   // Render children
-  return children(transitionState, phase);
+  return typeof children === 'function' ? children(transitionState, phase) : children;
 }
