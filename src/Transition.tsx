@@ -107,7 +107,7 @@ export type TransitionProps = {
 };
 
 const EVENT_MAP: {
-  [key in TransitionPhase]: [TransitionPhaseEvent, TransitionPhase?, boolean?];
+  [key in TransitionPhase]: [eventName: TransitionPhaseEvent, nextPhase?: TransitionPhase, delay?: boolean];
 } = {
   [TransitionPhase.APPEAR]: [TransitionPhaseEvent.ENTER, TransitionPhase.APPEAR_ACTIVE],
   [TransitionPhase.APPEAR_ACTIVE]: [TransitionPhaseEvent.ENTERING, TransitionPhase.APPEAR_DONE, true],
@@ -159,6 +159,7 @@ export function Transition(props: TransitionProps) {
     const { [eventName]: event } = props;
     event?.();
     let tm = 0;
+    let af = 0;
     if (nextPhase) {
       if (delay) {
         if (addEndListener) {
@@ -167,11 +168,12 @@ export function Transition(props: TransitionProps) {
           tm = setTimeout(setPhase, duration, nextPhase);
         }
       } else {
-        tm = setTimeout(setPhase, 0, nextPhase);
+        af = requestAnimationFrame(() => setPhase(nextPhase));
       }
     }
     return () => {
       clearTimeout(tm);
+      cancelAnimationFrame(af);
     };
   }, [phase, duration]);
 

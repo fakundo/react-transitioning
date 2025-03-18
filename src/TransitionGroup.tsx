@@ -41,11 +41,6 @@ type VisibleElement = {
   removeTimeout?: number;
 };
 
-const getChildProp = <T,>(child: React.ReactElement<any>, propName: string, defaultValue: T): T => {
-  const { [propName]: prop = defaultValue } = child.props;
-  return prop;
-};
-
 /**
  * The `TransitionGroup` component handles a collection of `Transition` child elements
  * and applies transition animations when elements enter and exit the DOM.
@@ -69,18 +64,16 @@ export function TransitionGroup(props: TransitionGroupProps) {
     }
   });
 
-  const pushVisibleElement = (
+  const addVisibleElement = (
     element: VisibleElement['element'],
     removeTimeout?: VisibleElement['removeTimeout'],
   ) => {
     const elementClone = cloneElement(element, {
-      exit,
-      enter,
-      duration,
       in: !removeTimeout,
-      appear: firstRenderRef.current
-        ? getChildProp(element, 'appear', appear)
-        : getChildProp(element, 'enter', enter),
+      enter: false,
+      appear: firstRenderRef.current ? (element.props.appear ?? appear) : (element.props.enter ?? enter),
+      exit: element.props.exit ?? exit,
+      duration: element.props.duration ?? duration,
     });
 
     nextVisibleElements.push({ element, removeTimeout });
@@ -88,18 +81,15 @@ export function TransitionGroup(props: TransitionGroupProps) {
   };
 
   const makeRemoveTimeout = (elementToRemove: VisibleElement['element']) =>
-    window.setTimeout(
-      () => {
-        const { current: prevVisibleChildren } = prevVisibleElementsRef;
-        const indexToDelete = prevVisibleChildren.findIndex(
-          ({ element }) => element.key === elementToRemove.key,
-        );
-        if (indexToDelete >= 0) {
-          prevVisibleChildren.splice(indexToDelete, 1);
-        }
-      },
-      getChildProp(elementToRemove, 'duration', duration),
-    );
+    window.setTimeout(() => {
+      const { current: prevVisibleChildren } = prevVisibleElementsRef;
+      const indexToDelete = prevVisibleChildren.findIndex(
+        ({ element }) => element.key === elementToRemove.key,
+      );
+      if (indexToDelete >= 0) {
+        prevVisibleChildren.splice(indexToDelete, 1);
+      }
+    }, elementToRemove.props.duration ?? duration);
 
   let lastAddedElementIndex = 0;
 
@@ -111,12 +101,12 @@ export function TransitionGroup(props: TransitionGroupProps) {
     if (foundIndex < 0) {
       // The visible element already has a removal timeout, which means it's currently exiting
       if (prevRemoveTimeout) {
-        pushVisibleElement(prevElement, prevRemoveTimeout);
+        addVisibleElement(prevElement, prevRemoveTimeout);
       } else {
         // Start the removal timeout, but continue rendering this element
-        const shouldAddTimeout = exit && prevElement.props.exit !== false;
+        const shouldAddTimeout = prevElement.props.exit ?? exit;
         if (shouldAddTimeout) {
-          pushVisibleElement(prevElement, makeRemoveTimeout(prevElement));
+          addVisibleElement(prevElement, makeRemoveTimeout(prevElement));
         }
       }
     } else {
@@ -126,7 +116,7 @@ export function TransitionGroup(props: TransitionGroupProps) {
       }
       // Add derived element along with all previous children
       for (let i = lastAddedElementIndex; i <= foundIndex; i += 1) {
-        pushVisibleElement(derivedElements[i]);
+        addVisibleElement(derivedElements[i]);
       }
     }
     // Save the index to loop only through the remaining element
@@ -135,7 +125,7 @@ export function TransitionGroup(props: TransitionGroupProps) {
 
   // Add the remaining elements
   for (let i = lastAddedElementIndex; i < derivedElements.length; i += 1) {
-    pushVisibleElement(derivedElements[i]);
+    addVisibleElement(derivedElements[i]);
   }
 
   // Save the visible elements

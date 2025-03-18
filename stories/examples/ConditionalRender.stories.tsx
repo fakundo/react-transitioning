@@ -5,8 +5,7 @@ import { FadeTransition } from '../misc/StyleFadeTransition';
 
 const META: Meta = {
   tags: ['!dev'],
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: args => {
+  render: () => {
     const [showFirstItem, setShowFirstItem] = useState(true);
     const [showSecondItem, setShowSecondItem] = useState(true);
     const [showThirdItem, setShowThirdItem] = useState(true);

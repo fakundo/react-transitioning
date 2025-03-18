@@ -7,8 +7,7 @@ const makeItem = () => `ITEM:${Math.random().toString().substring(2, 8)}`;
 
 const META: Meta = {
   tags: ['!dev'],
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: args => {
+  render: () => {
     const [shouldAnimateShuffle, setShouldAnimateShuffle] = useState(false);
     const [items, setItems] = useState(() => new Array(10).fill('').map(makeItem));
 
