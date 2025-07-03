@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useIsoEffect } from './useIsoEffect';
 
 /**
@@ -138,11 +138,11 @@ export function Transition(props: TransitionProps) {
     addEndListener,
   } = props;
 
-  let ignoreInPropChange = false;
+  const ignoreInPropChangeRef = useRef(false);
 
   // Make phase state
   const [phase, setPhase] = useState(() => {
-    ignoreInPropChange = true;
+    ignoreInPropChangeRef.current = true;
     if (!inProp) {
       return TransitionPhase.EXIT_DONE;
     }
@@ -179,7 +179,7 @@ export function Transition(props: TransitionProps) {
 
   // Effect for initial phase
   useIsoEffect(() => {
-    if (!ignoreInPropChange) {
+    if (!ignoreInPropChangeRef.current) {
       if (inProp) {
         setPhase(enter ? TransitionPhase.ENTER : TransitionPhase.ENTER_DONE);
       } else {
