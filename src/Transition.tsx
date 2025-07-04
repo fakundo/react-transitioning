@@ -138,18 +138,16 @@ export function Transition(props: TransitionProps) {
     addEndListener,
   } = props;
 
-  let ignoreInPropChange = false;
-
   // Make phase state
   const [phase, setPhase] = useState(() => {
-    ignoreInPropChange = true;
-    if (!inProp) {
-      return TransitionPhase.EXIT_DONE;
+    switch (true) {
+      case !inProp:
+        return TransitionPhase.EXIT_DONE;
+      case !!appear:
+        return TransitionPhase.APPEAR;
+      default:
+        return TransitionPhase.APPEAR_DONE;
     }
-    if (appear) {
-      return TransitionPhase.APPEAR;
-    }
-    return TransitionPhase.APPEAR_DONE;
   });
 
   // Effect for phase change
@@ -177,14 +175,18 @@ export function Transition(props: TransitionProps) {
     };
   }, [phase, duration]);
 
-  // Effect for initial phase
+  // Effect for handling `in` prop changes
   useIsoEffect(() => {
-    if (!ignoreInPropChange) {
-      if (inProp) {
-        setPhase(enter ? TransitionPhase.ENTER : TransitionPhase.ENTER_DONE);
-      } else {
-        setPhase(exit ? TransitionPhase.EXIT : TransitionPhase.EXIT_DONE);
-      }
+    const isExitPhase = [
+      TransitionPhase.EXIT,
+      TransitionPhase.EXIT_ACTIVE,
+      TransitionPhase.EXIT_DONE,
+    ].includes(phase);
+    if (inProp && isExitPhase) {
+      setPhase(enter ? TransitionPhase.ENTER : TransitionPhase.ENTER_DONE);
+    }
+    if (!inProp && !isExitPhase) {
+      setPhase(exit ? TransitionPhase.EXIT : TransitionPhase.EXIT_DONE);
     }
   }, [inProp]);
 

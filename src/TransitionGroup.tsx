@@ -1,4 +1,5 @@
 import { Children, cloneElement, useRef, isValidElement } from 'react';
+import { useIsoEffect } from './useIsoEffect';
 
 export type TransitionGroupProps = {
   children: React.ReactNode;
@@ -49,7 +50,7 @@ type VisibleElement = {
 export function TransitionGroup(props: TransitionGroupProps) {
   const { children, appear = false, enter = true, exit = false, duration = 500 } = props;
 
-  const firstRenderRef = useRef(true);
+  const mountedRef = useRef(false);
   const prevVisibleElementsRef = useRef<VisibleElement[]>([]);
   const nextVisibleElements: VisibleElement[] = [];
   const nextElements: React.ReactElement[] = [];
@@ -71,9 +72,9 @@ export function TransitionGroup(props: TransitionGroupProps) {
     const elementClone = cloneElement(element, {
       in: !removeTimeout,
       enter: false,
-      appear: firstRenderRef.current ? (element.props.appear ?? appear) : (element.props.enter ?? enter),
       exit: element.props.exit ?? exit,
       duration: element.props.duration ?? duration,
+      appear: mountedRef.current ? (element.props.enter ?? enter) : (element.props.appear ?? appear),
     });
 
     nextVisibleElements.push({ element, removeTimeout });
@@ -128,8 +129,13 @@ export function TransitionGroup(props: TransitionGroupProps) {
     addVisibleElement(derivedElements[i]);
   }
 
+  // Mark as mounted
+  useIsoEffect(() => {
+    mountedRef.current = true;
+  }, []);
+
   // Save the visible elements
   prevVisibleElementsRef.current = nextVisibleElements;
-  firstRenderRef.current = false;
+
   return nextElements;
 }
