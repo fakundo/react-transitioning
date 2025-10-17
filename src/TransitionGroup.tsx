@@ -77,10 +77,10 @@ export function TransitionGroup(props: TransitionGroupProps) {
     removeTimeout?: VisibleElement['removeTimeout'],
   ) => {
     const elementClone = cloneElement(element, {
-      enter: true,
       in: !removeTimeout,
       alwaysMounted: false,
       exit: element.props.exit ?? exit,
+      enter: element.props.enter ?? enter,
       duration: element.props.duration ?? duration,
       appear: mountedRef.current ? (element.props.enter ?? enter) : (element.props.appear ?? appear),
     });
