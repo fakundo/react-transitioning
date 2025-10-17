@@ -6,10 +6,14 @@ const META: Meta<typeof Transition> = {
   title: 'Components/Transition',
   component: Transition,
   tags: ['autodocs'],
+  argTypes: {
+    children: { control: false },
+  },
   args: {
     in: true,
-    children: transitionState => <pre>{JSON.stringify(transitionState, null, ' ')}</pre>,
+    appear: true,
     alwaysMounted: true,
+    children: transitionState => <pre>{JSON.stringify(transitionState, null, '  ')}</pre>,
     onEnter: fn(),
     onEntering: fn(),
     onEntered: fn(),

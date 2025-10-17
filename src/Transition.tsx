@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useIsoEffect } from './useIsoEffect';
+import { DEFAULT_TRANSITION_DURATION } from './constants';
 
 /**
  * Enum representing the different phases of a transition.
@@ -75,7 +76,7 @@ export type TransitionProps = {
   /**
    * Duration of the transition in milliseconds. Can be used to override default durations for the phases.
    *
-   * @default 500
+   * @default DEFAULT_TRANSITION_DURATION=500
    */
   duration?: number;
 
@@ -133,7 +134,7 @@ export function Transition(props: TransitionProps) {
     appear = false,
     enter = true,
     exit = true,
-    duration = 500,
+    duration = DEFAULT_TRANSITION_DURATION,
     alwaysMounted = false,
     addEndListener,
   } = props;

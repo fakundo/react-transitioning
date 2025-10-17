@@ -3,10 +3,15 @@ import { useState } from 'react';
 import { TransitionGroup } from 'react-transitioning';
 import { FadeTransition } from '../misc/StyleFadeTransition';
 
-const makeItem = () => `ITEM:${Math.random().toString().substring(2, 8)}`;
+const makeItem = () => `Fading item #${Math.random().toString().substring(2, 8)}`;
 
 const META: Meta = {
   tags: ['!dev'],
+};
+
+export default META;
+
+export const Default: StoryObj<typeof META> = {
   render: () => {
     const [shouldAnimateShuffle, setShouldAnimateShuffle] = useState(false);
     const [items, setItems] = useState(() => new Array(10).fill('').map(makeItem));
@@ -30,15 +35,17 @@ const META: Meta = {
         <button onClick={addToEnd} type="button">
           + Add item to the end
         </button>
+        <br />
         <button onClick={removeFromStart} type="button">
-          &times; Remove item from the start
+          × Remove item from the start
         </button>
         <button onClick={removeFromCenter} type="button">
-          &times; Remove item from the center
+          × Remove item from the center
         </button>
         <button onClick={removeFromEnd} type="button">
-          &times; Remove item from the end
+          × Remove item from the end
         </button>
+        <br />
         <button onClick={shuffle} type="button">
           ? Shuffle items
         </button>
@@ -53,7 +60,7 @@ const META: Meta = {
               <pre>
                 {index}. {item}{' '}
                 <button onClick={removeItem(index)} type="button">
-                  &times; Remove item
+                  × Remove item
                 </button>
               </pre>
             </FadeTransition>
@@ -63,7 +70,3 @@ const META: Meta = {
     );
   },
 };
-
-export default META;
-
-export const Default: StoryObj<typeof META> = {};

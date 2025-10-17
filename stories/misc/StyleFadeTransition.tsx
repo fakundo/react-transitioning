@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import { StyleTransition, StyleTransitionProps } from 'react-transitioning';
+import { StyleTransition, StyleTransitionProps, DEFAULT_TRANSITION_DURATION } from 'react-transitioning';
 
 export type FadeTransitionProps = Omit<StyleTransitionProps, 'styles'>;
 
 export function FadeTransition(props: FadeTransitionProps) {
-  const { duration = 500 } = props;
+  const { duration = DEFAULT_TRANSITION_DURATION } = props;
 
   const styles = useMemo(
     () => ({

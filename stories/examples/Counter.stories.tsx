@@ -3,32 +3,31 @@ import { TransitionGroup } from 'react-transitioning';
 import { useEffect, useState } from 'react';
 import { FadeTransition } from '../misc/StyleFadeTransition';
 
-const duration = 1000;
-
 const META: Meta = {
   tags: ['!dev'],
+};
+
+export default META;
+
+export const Default: StoryObj<typeof META> = {
   render: () => {
     const [sec, setSec] = useState(0);
 
     useEffect(() => {
       const i = setInterval(() => {
         setSec(prevSec => prevSec + 1);
-      }, duration);
+      }, 1000);
       return () => {
         clearInterval(i);
       };
     }, []);
 
     return (
-      <TransitionGroup duration={duration}>
+      <TransitionGroup duration={1000}>
         <FadeTransition key={sec}>
-          <div style={{ fontSize: 60, fontFamily: 'monospace' }}>{sec}</div>
+          <pre style={{ fontSize: 60 }}>{sec}</pre>
         </FadeTransition>
       </TransitionGroup>
     );
   },
 };
-
-export default META;
-
-export const Default: StoryObj<typeof META> = {};

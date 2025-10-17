@@ -13,6 +13,7 @@ const META: Meta<typeof StyleTransition> = {
   },
   args: {
     in: true,
+    appear: true,
     styles: {
       appear: { opacity: 0 },
       appearActive: { opacity: 1 },
@@ -23,7 +24,14 @@ const META: Meta<typeof StyleTransition> = {
       exitDone: { opacity: 0 },
     },
     children: (
-      <div style={{ width: 100, height: 100, background: 'olive', transition: `all ${DURATION}ms` }} />
+      <div
+        style={{
+          width: 100,
+          height: 100,
+          background: 'olive',
+          transition: `all ${DURATION}ms`,
+        }}
+      />
     ),
     alwaysMounted: true,
     duration: DURATION,

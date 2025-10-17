@@ -4,6 +4,11 @@ import { FadeTransition } from '../misc/CSSFadeTransition';
 
 const META: Meta = {
   tags: ['!dev'],
+};
+
+export default META;
+
+export const Default: StoryObj<typeof META> = {
   render: () => {
     const [visible, setVisible] = useState(true);
     return (
@@ -19,7 +24,3 @@ const META: Meta = {
     );
   },
 };
-
-export default META;
-
-export const Default: StoryObj<typeof META> = {};

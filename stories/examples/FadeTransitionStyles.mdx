@@ -10,19 +10,9 @@ This example demonstrates how to create a fade transition using the `StyleTransi
 
 ## Code Example
 
-Here’s the implementation:
+Example implementation of the `FadeTransition` component:
 
 <Source code={sourceCode} language="tsx" dark />
-
-## Usage
-
-You can easily use the `FadeTransition` component in your project like this:
-
-```tsx
-<FadeTransition in={visible}>
-  <div>Fading element</div>
-</FadeTransition>
-```
 
 ## Explanation
 
@@ -41,6 +31,15 @@ The example implements a fading transition effect using the `StyleTransition` co
 4. **Dynamic Animation Phases**:
    - The `StyleTransition` component applies specific inline styles during each phase of the transition (`enter`, `enterActive`, `exit`, etc.).
 
+## Usage
+
+You can then use the `FadeTransition` component in your project like this:
+
+```tsx
+<FadeTransition in={visible}>
+  <div>Fading element</div>
+</FadeTransition>
+```
 
 ## Live Demo
 

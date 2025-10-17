@@ -5,10 +5,15 @@ import { FadeTransition } from '../misc/StyleFadeTransition';
 
 const META: Meta = {
   tags: ['!dev'],
+};
+
+export default META;
+
+export const Default: StoryObj<typeof META> = {
   render: () => {
     const [showFirstItem, setShowFirstItem] = useState(true);
     const [showSecondItem, setShowSecondItem] = useState(true);
-    const [showThirdItem, setShowThirdItem] = useState(true);
+    const [showThirdItem, setShowThirdItem] = useState(false);
 
     const toggleFirstItem = () => setShowFirstItem(!showFirstItem);
     const toggleSecondItem = () => setShowSecondItem(!showSecondItem);
@@ -26,7 +31,7 @@ const META: Meta = {
           Toggle third item
         </button>
         <hr />
-        <TransitionGroup>
+        <TransitionGroup exit>
           {showFirstItem && (
             <FadeTransition>
               <pre>FIRST ITEM</pre>
@@ -47,7 +52,3 @@ const META: Meta = {
     );
   },
 };
-
-export default META;
-
-export const Default: StoryObj<typeof META> = {};

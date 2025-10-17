@@ -4,6 +4,11 @@ import { Transition } from 'react-transitioning';
 
 const META: Meta = {
   tags: ['!dev'],
+};
+
+export default META;
+
+export const Default: StoryObj<typeof META> = {
   render: () => {
     const [visible, setVisible] = useState(true);
     const [alwaysMounted, setAlwaysMounted] = useState(true);
@@ -19,14 +24,10 @@ const META: Meta = {
           Always mounted
         </label>
         <hr />
-        <Transition in={visible} alwaysMounted={alwaysMounted} appear>
-          {transitionState => <pre>{JSON.stringify(transitionState, null, ' ')}</pre>}
+        <Transition in={visible} alwaysMounted={alwaysMounted}>
+          {transitionState => <pre>{JSON.stringify(transitionState, null, '  ')}</pre>}
         </Transition>
       </>
     );
   },
 };
-
-export default META;
-
-export const Default: StoryObj<typeof META> = {};

@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/react';
 import { TransitionGroup } from 'react-transitioning';
 import { FadeTransition } from '../misc/StyleFadeTransition';
 
+const ITEMS = ['olive', 'green'];
+
 const META: Meta<typeof TransitionGroup> = {
   title: 'Components/TransitionGroup',
   component: TransitionGroup,
@@ -14,12 +16,20 @@ const META: Meta<typeof TransitionGroup> = {
   },
   render: args => (
     <TransitionGroup {...args}>
-      <FadeTransition>
-        <div>Item 1</div>
-      </FadeTransition>
-      <FadeTransition>
-        <div>Item 2</div>
-      </FadeTransition>
+      {ITEMS.map(item => (
+        <FadeTransition key={item}>
+          <div
+            style={{
+              width: 100,
+              height: 100,
+              background: item,
+              verticalAlign: 'top',
+              display: 'inline-block',
+              transition: 'all 500ms',
+            }}
+          />
+        </FadeTransition>
+      ))}
     </TransitionGroup>
   ),
 };

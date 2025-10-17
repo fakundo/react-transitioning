@@ -11,25 +11,15 @@ This example demonstrates how to create a fade transition using the `CSSTransiti
 
 ## Code Example
 
-Here’s the implementation:
+Example implementation of the `FadeTransition` component:
 
 <Source code={sourceCode} language="tsx" dark />
 
-File: `CSSFadeTransition.css`
+Contents of the file `CSSFadeTransition.css`:
 
 <Source code={cssSourceCode} language="css" dark />
 
-## Usage
-
-You can easily use the `FadeTransition` component in your project like this:
-
-```tsx
-<FadeTransition in={visible}>
-  <div>Fading element</div>
-</FadeTransition>
-```
-
-## Explanation:
+## Explanation
 
 The example implements a fading transition effect using the `StyleTransition` component. Below are the key points:
 
@@ -42,6 +32,16 @@ The example implements a fading transition effect using the `StyleTransition` co
 
 3. **Reusability**:
    - By encapsulating logic into a `FadeTransition` component, you can easily reuse fade animations across your project.
+
+## Usage
+
+You can then use the `FadeTransition` component in your project like this:
+
+```tsx
+<FadeTransition in={visible}>
+  <div>Fading element</div>
+</FadeTransition>
+```
 
 ## Live Demo
 

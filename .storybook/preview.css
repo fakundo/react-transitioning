@@ -1,7 +1,11 @@
 #storybook-root, .sb-story {
   color: #C9CDCF;
+  min-height: 100px;
 }
 button {
   color: #1B1C1D;
   background-color: #C9CDCF;
+}
+pre { 
+  margin: 0;
 }

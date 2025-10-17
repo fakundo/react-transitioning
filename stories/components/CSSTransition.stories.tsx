@@ -12,8 +12,17 @@ const META: Meta<typeof CSSTransition> = {
   },
   args: {
     in: true,
+    appear: true,
     classNames: 'fade',
-    children: <div style={{ width: 100, height: 100, background: 'olive' }} />,
+    children: (
+      <div
+        style={{
+          width: 100,
+          height: 100,
+          background: 'olive',
+        }}
+      />
+    ),
     alwaysMounted: true,
   },
 };

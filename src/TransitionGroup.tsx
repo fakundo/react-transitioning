@@ -1,5 +1,6 @@
 import { Children, cloneElement, useRef, isValidElement } from 'react';
 import { useIsoEffect } from './useIsoEffect';
+import { DEFAULT_TRANSITION_DURATION } from './constants';
 
 export type TransitionGroupProps = {
   children: React.ReactNode;
@@ -32,7 +33,7 @@ export type TransitionGroupProps = {
    * The duration of the transition in milliseconds. This value can be used to set the
    * transition duration for all children in the group.
    *
-   * @default 500
+   * @default DEFAULT_TRANSITION_DURATION=500
    */
   duration?: number;
 };
@@ -48,7 +49,13 @@ type VisibleElement = {
  * It can be used to animate multiple elements, controlling their appearance and removal in a container.
  */
 export function TransitionGroup(props: TransitionGroupProps) {
-  const { children, appear = false, enter = true, exit = false, duration = 500 } = props;
+  const {
+    children,
+    appear = false,
+    enter = true,
+    exit = false,
+    duration = DEFAULT_TRANSITION_DURATION,
+  } = props;
 
   const mountedRef = useRef(false);
   const prevVisibleElementsRef = useRef<VisibleElement[]>([]);
@@ -70,8 +77,9 @@ export function TransitionGroup(props: TransitionGroupProps) {
     removeTimeout?: VisibleElement['removeTimeout'],
   ) => {
     const elementClone = cloneElement(element, {
+      enter: true,
       in: !removeTimeout,
-      enter: false,
+      alwaysMounted: false,
       exit: element.props.exit ?? exit,
       duration: element.props.duration ?? duration,
       appear: mountedRef.current ? (element.props.enter ?? enter) : (element.props.appear ?? appear),

@@ -1,6 +1,6 @@
 {
   "name": "react-transitioning",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "React components for easily implementing basic CSS animations and transitions",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",

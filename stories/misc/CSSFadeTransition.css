@@ -1,7 +1,7 @@
-.fade-apper {
+.fade-appear {
   opacity: 0;
 }
-.fade-apper-active {
+.fade-appear-active {
   opacity: 1;
   transition: opacity 500ms;
 }
