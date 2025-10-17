@@ -1,10 +1,10 @@
-import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as s}from"./index-3LwI-BAG.js";import{M as o,S as r,C as a}from"./index-83Co2hU-.js";import{Default as l}from"./FadeTransitionStyles.stories-Bu3HYwpF.js";import"./index-B-SYruCi.js";import"./iframe-BBl4h44f.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./StyleFadeTransition-DuLar2jw.js";import"./CSSTransition-BcQV4rvK.js";const c=`import { useMemo } from 'react';
-import { StyleTransition, StyleTransitionProps } from 'react-transitioning';
+import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as s}from"./index-3LwI-BAG.js";import{M as o,S as r,C as a}from"./index-CuPu8Tmx.js";import{Default as l}from"./FadeTransitionStyles.stories-DM-abd4L.js";import"./index-B-SYruCi.js";import"./iframe-CH3oSKwU.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./StyleFadeTransition-M4YQNHeZ.js";import"./CSSTransition-C2y1aoT6.js";const c=`import { useMemo } from 'react';
+import { StyleTransition, StyleTransitionProps, DEFAULT_TRANSITION_DURATION } from 'react-transitioning';
 
 export type FadeTransitionProps = Omit<StyleTransitionProps, 'styles'>;
 
 export function FadeTransition(props: FadeTransitionProps) {
-  const { duration = 500 } = props;
+  const { duration = DEFAULT_TRANSITION_DURATION } = props;
 
   const styles = useMemo(
     () => ({
@@ -25,14 +25,8 @@ export function FadeTransition(props: FadeTransitionProps) {
 `,n.jsx(e.h1,{id:"fade-transition-with-inline-styles",children:"Fade Transition with Inline Styles"}),`
 `,n.jsxs(e.p,{children:["This example demonstrates how to create a fade transition using the ",n.jsx(e.code,{children:"StyleTransition"})," component with custom inline styles."]}),`
 `,n.jsx(e.h2,{id:"code-example",children:"Code Example"}),`
-`,n.jsx(e.p,{children:"Here’s the implementation:"}),`
+`,n.jsxs(e.p,{children:["Example implementation of the ",n.jsx(e.code,{children:"FadeTransition"})," component:"]}),`
 `,n.jsx(r,{code:c,language:"tsx",dark:!0}),`
-`,n.jsx(e.h2,{id:"usage",children:"Usage"}),`
-`,n.jsxs(e.p,{children:["You can easily use the ",n.jsx(e.code,{children:"FadeTransition"})," component in your project like this:"]}),`
-`,n.jsx(e.pre,{children:n.jsx(e.code,{className:"language-tsx",children:`<FadeTransition in={visible}>
-  <div>Fading element</div>
-</FadeTransition>
-`})}),`
 `,n.jsx(e.h2,{id:"explanation",children:"Explanation"}),`
 `,n.jsxs(e.p,{children:["The example implements a fading transition effect using the ",n.jsx(e.code,{children:"StyleTransition"})," component. Below are the key points:"]}),`
 `,n.jsxs(e.ol,{children:[`
@@ -62,6 +56,12 @@ export function FadeTransition(props: FadeTransitionProps) {
 `]}),`
 `]}),`
 `]}),`
+`,n.jsx(e.h2,{id:"usage",children:"Usage"}),`
+`,n.jsxs(e.p,{children:["You can then use the ",n.jsx(e.code,{children:"FadeTransition"})," component in your project like this:"]}),`
+`,n.jsx(e.pre,{children:n.jsx(e.code,{className:"language-tsx",children:`<FadeTransition in={visible}>
+  <div>Fading element</div>
+</FadeTransition>
+`})}),`
 `,n.jsx(e.h2,{id:"live-demo",children:"Live Demo"}),`
 `,n.jsxs(e.p,{children:["Check out the live demo below to see the ",n.jsx(e.code,{children:"FadeTransition"})," in action:"]}),`
 `,n.jsx(a,{of:l}),`
