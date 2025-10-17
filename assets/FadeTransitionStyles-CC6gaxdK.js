@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as s}from"./index-3LwI-BAG.js";import{M as o,S as r,C as a}from"./index-CuPu8Tmx.js";import{Default as l}from"./FadeTransitionStyles.stories-DM-abd4L.js";import"./index-B-SYruCi.js";import"./iframe-CH3oSKwU.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./StyleFadeTransition-M4YQNHeZ.js";import"./CSSTransition-C2y1aoT6.js";const c=`import { useMemo } from 'react';
+import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as s}from"./index-3LwI-BAG.js";import{M as o,S as r,C as a}from"./index-D6dlfkvq.js";import{Default as l}from"./FadeTransitionStyles.stories-BkEIdAWD.js";import"./index-B-SYruCi.js";import"./iframe-CuKLPrTB.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./StyleFadeTransition-BWikRFW8.js";import"./CSSTransition-p54P5Xt1.js";const c=`import { useMemo } from 'react';
 import { StyleTransition, StyleTransitionProps, DEFAULT_TRANSITION_DURATION } from 'react-transitioning';
 
 export type FadeTransitionProps = Omit<StyleTransitionProps, 'styles'>;
