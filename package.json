@@ -19,8 +19,9 @@
     "lint": "eslint src && eslint stories",
     "watch": "tsup --watch",
     "build": "tsup --clean",
+    "titlefix": "node scripts/titlefix",
     "dev": "storybook dev -p 6006",
-    "docs": "storybook build -o docs"
+    "docs": "storybook build -o docs && yarn run titlefix"
   },
   "keywords": [
     "react",

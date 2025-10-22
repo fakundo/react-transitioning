@@ -3,18 +3,7 @@
 [![npm](https://img.shields.io/npm/v/react-transitioning.svg)](https://www.npmjs.com/package/react-transitioning)
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/fakundo/react-transitioning)
 
-A simple React library that provides components for managing animations and transitions with ease. It allows seamless transitions for both individual components and groups of elements. The library is inspired by [react-transition-group](https://reactcommunity.org/react-transition-group/) and shares a similar API with a few notable differences.
-
-## Key Features
-
-- **Ease of Use**: Simple and intuitive API for creating animations and transitions for both components and groups of elements.
-- **Modern Approach**: Built with functional components and hooks, avoiding deprecated methods like `findDOMNode`.
-- **No External Dependencies**: No additional dependencies, keeping your project lightweight and reducing potential conflicts.
-- **No `nodeRef` Required**: Unlike `react-transition-group`, there's no need to pass a `nodeRef` prop.
-- **Flexibility**: Supports both CSS-based and inline style-based animations.
-- **Lightweight**: Minimal bundle size to keep your application fast.
-
-The library provides components that allow you to easily create custom components with animations and transitions tailored to your needs. You can integrate them into your own React components to add smooth animations and transitions with minimal effort.
+A library that provides React components for managing animations and transitions with ease. It allows seamless transitions for both individual components and groups of elements. Lightweight and has no dependencies. Inspired by [react-transition-group](https://reactcommunity.org/react-transition-group/) and has almost the same API.
 
 ```tsx
 <FadeTransition in={visible}>
@@ -22,9 +11,17 @@ The library provides components that allow you to easily create custom component
 </FadeTransition>
 ```
 
+## Key Features
+
+- Built with functional components and hooks, avoiding deprecated methods like `findDOMNode`.
+- Unlike `react-transition-group`, there's no need to pass a `nodeRef` prop.
+- Supports both CSS-based and inline style-based transitions.
+- Minimal bundle size.
+- No dependencies.
+
 ## Installation
 
-To install the library, run:
+To install `react-transitioning`, run the following command in your project:
 
 ```bash
 npm install react-transitioning
@@ -36,7 +33,7 @@ yarn add react-transitioning
 
 For more detailed information and usage examples, check out the [Docs](https://fakundo.github.io/react-transitioning/).
 
-## Usage
+## Quick Review
 
 ### Transition Component
 
@@ -47,7 +44,7 @@ import { Transition } from 'react-transitioning'
 
 ...
 
-<Transition in={!hidden} appear exit={false}>
+<Transition in={visible} appear exit={false}>
   {(transitionState) => (
     <pre>{JSON.stringify(transitionState)}</pre>
   )}
@@ -63,7 +60,7 @@ import { CSSTransition } from 'react-transitioning'
 
 ...
 
-<CSSTransition in={!hidden} classNames="fade">
+<CSSTransition in={visible} classNames="fade">
   <div>Animated element</div>
 </CSSTransition>
 ```
@@ -78,7 +75,7 @@ import { StyleTransition } from 'react-transitioning'
 ...
 
 <StyleTransition 
-  in={!hidden} 
+  in={visible} 
   duration={300} 
   styles={{
     enter: { opacity: 0 },
@@ -107,22 +104,9 @@ import { TransitionGroup } from 'react-transitioning'
 </TransitionGroup>
 ```
 
-### Detecting Transition End:
+## Component Props
 
-```tsx
-<CSSTransition
-  in={!hidden}
-  classNames="fade"
-  addEndListener={(phase, done) => {
-    nodeRef.current.addEventListener('transitionend', done, { once: true, capture: false })
-  }}
->
-  <div ref={nodeRef}>Animated element</div>
-</CSSTransition>
-```
-## API
-
-### Transition Props
+### TransitionProps
 
 ```ts
 type TransitionProps = {
@@ -159,7 +143,7 @@ type TransitionState = {
 }
 ```
 
-### CSSTransition Props
+### CSSTransitionProps
 
 ```ts
 type CSSTransitionProps = Omit<TransitionProps, 'children'> & {
@@ -178,12 +162,12 @@ type CSSTransitionProps = Omit<TransitionProps, 'children'> & {
 }
 ```
 
-if `classNames` is a string, then the computed `className` will be suffixed based on the current transition state. 
-For example, when `classNames` is `"fade"`, the `fade-appear-active` class will be applied during the `appearActive` phase.
+if `classNames` is a string, then the computed class name will be suffixed based on the current transition state. 
+For example, when `classNames` is `"fade"`, the `"fade-appear-active"` class will be applied during the `appearActive` phase.
 
-If `classNames` is an object, the final `className` will be taken from that object based on the current transition state.
+If `classNames` is an object, the final class name will be taken from that object based on the current transition state.
 
-### StyleTransition Props
+### StyleTransitionProps
 
 ```ts
 type StyleTransitionProps = Omit<TransitionProps, 'children'> & {
@@ -204,7 +188,7 @@ type StyleTransitionProps = Omit<TransitionProps, 'children'> & {
 
 The `styles` prop allows you to define inline styles based on the current transition state. For example, when the element enters, the `enterActive` styles will be applied.
 
-### TransitionGroup Props
+### TransitionGroupProps
 
 ```ts
 type TransitionGroupProps = {

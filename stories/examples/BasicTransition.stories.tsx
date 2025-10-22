@@ -16,13 +16,15 @@ export const Default: StoryObj<typeof META> = {
     const toggleAlwaysMounted = () => setAlwaysMounted(!alwaysMounted);
     return (
       <>
-        <button onClick={toggleVisibility} type="button">
-          Toggle visibility
-        </button>
-        <label>
-          <input type="checkbox" checked={alwaysMounted} onChange={toggleAlwaysMounted} />
-          Always mounted
-        </label>
+        <div className="group">
+          <button onClick={toggleVisibility} type="button">
+            Toggle visibility
+          </button>
+          <label>
+            <input type="checkbox" checked={alwaysMounted} onChange={toggleAlwaysMounted} />
+            Always mounted
+          </label>
+        </div>
         <hr />
         <Transition in={visible} alwaysMounted={alwaysMounted}>
           {transitionState => <pre>{JSON.stringify(transitionState, null, '  ')}</pre>}

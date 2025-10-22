@@ -29,43 +29,53 @@ export const Default: StoryObj<typeof META> = {
 
     return (
       <>
-        <button onClick={addToStart} type="button">
-          + Add item to the start
-        </button>
-        <button onClick={addToEnd} type="button">
-          + Add item to the end
-        </button>
-        <br />
-        <button onClick={removeFromStart} type="button">
-          × Remove item from the start
-        </button>
-        <button onClick={removeFromCenter} type="button">
-          × Remove item from the center
-        </button>
-        <button onClick={removeFromEnd} type="button">
-          × Remove item from the end
-        </button>
-        <br />
-        <button onClick={shuffle} type="button">
-          ? Shuffle items
-        </button>
-        <label>
-          <input type="checkbox" checked={shouldAnimateShuffle} onChange={toggleShouldAnimateShuffle} />
-          Should animate shuffle
-        </label>
+        <div className="group">
+          <button onClick={addToStart} type="button">
+            + Add item to the start
+          </button>
+          <button onClick={addToEnd} type="button">
+            + Add item to the end
+          </button>
+          <br />
+          <button onClick={removeFromStart} type="button">
+            × Remove item from the start
+          </button>
+          <button onClick={removeFromCenter} type="button">
+            × Remove item from the center
+          </button>
+          <button onClick={removeFromEnd} type="button">
+            × Remove item from the end
+          </button>
+          <br />
+          <button onClick={shuffle} type="button">
+            ? Shuffle items
+          </button>
+          <label>
+            <input type="checkbox" checked={shouldAnimateShuffle} onChange={toggleShouldAnimateShuffle} />
+            Should animate shuffle
+          </label>
+        </div>
         <hr />
-        <TransitionGroup exit={!shouldAnimateShuffle}>
-          {items.map((item, index) => (
-            <FadeTransition key={shouldAnimateShuffle ? `${item}${index}` : item}>
-              <pre>
-                {index}. {item}{' '}
-                <button onClick={removeItem(index)} type="button">
-                  × Remove item
-                </button>
-              </pre>
-            </FadeTransition>
-          ))}
-        </TransitionGroup>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '.25rem',
+          }}
+        >
+          <TransitionGroup exit={!shouldAnimateShuffle}>
+            {items.map((item, index) => (
+              <FadeTransition key={shouldAnimateShuffle ? `${item}${index}` : item}>
+                <div>
+                  <button onClick={removeItem(index)} type="button">
+                    ×
+                  </button>
+                  {` ${item}`}
+                </div>
+              </FadeTransition>
+            ))}
+          </TransitionGroup>
+        </div>
       </>
     );
   },

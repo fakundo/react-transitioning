@@ -7,24 +7,21 @@ import { Meta } from "@storybook/blocks";
 [![npm](https://img.shields.io/npm/v/react-transitioning.svg)](https://www.npmjs.com/package/react-transitioning)
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/fakundo/react-transitioning)
 
-A simple React library that provides components for managing animations and transitions with ease. It allows seamless transitions for both individual components and groups of elements. The library is inspired by [react-transition-group](https://reactcommunity.org/react-transition-group/) and shares a similar API with a few notable differences.
-
-## Key Features
-
-- **Ease of Use**: Simple and intuitive API for creating animations and transitions for both components and groups of elements.
-- **Modern Approach**: Built with functional components and hooks, avoiding deprecated methods like `findDOMNode`.
-- **No External Dependencies**: No additional dependencies, keeping your project lightweight and reducing potential conflicts.
-- **No `nodeRef` Required**: Unlike `react-transition-group`, there's no need to pass a `nodeRef` prop.
-- **Flexibility**: Supports both CSS-based and inline style-based animations.
-- **Lightweight**: Minimal bundle size to keep your application fast.
-
-The library provides components that allow you to easily create custom components with animations and transitions tailored to your needs. You can integrate them into your own React components to add smooth animations and transitions with minimal effort.
+A library that provides React components for managing animations and transitions with ease. It allows seamless transitions for both individual components and groups of elements. Lightweight and has no dependencies. Inspired by [react-transition-group](https://reactcommunity.org/react-transition-group/) and has almost the same API.
 
 ```tsx
 <FadeTransition in={visible}>
   <div>Fading element</div>
 </FadeTransition>
 ```
+
+## Key Features
+
+- Built with functional components and hooks, avoiding deprecated methods like `findDOMNode`.
+- Unlike `react-transition-group`, there's no need to pass a `nodeRef` prop.
+- Supports both CSS-based and inline style-based transitions.
+- Minimal bundle size.
+- No dependencies.
 
 ## Installation
 
@@ -36,6 +33,14 @@ npm install react-transitioning
 yarn add react-transitioning
 ```
 
+## Usage Examples
+
+- [Basic Transition Component](../?path=/docs/examples-basic-transition--docs): Demonstrates the functionality of a basic transition component.
+- [Fade Transition with Inline Styles](../?path=/docs/examples-fade-transition-inline-styles--docs): Implements a fading transition using inline styles.
+- [Fade Transition with Class Names](../?path=/docs/examples-fade-transition-class-names--docs): Implements a fading transition using CSS class names.
+- [Transition Group: Conditional Render](../?path=/docs/examples-transition-group-conditional-render--docs): Renders children conditionally with animations.
+- [Transition Group: Item List](../?path=/docs/examples-transition-group-item-list--docs): Renders an array of items with animations.
+
 ## Components Overview
 
 The library includes the following components to manage transitions and animations:
@@ -44,11 +49,3 @@ The library includes the following components to manage transitions and animatio
 - [StyleTransition](../?path=/docs/components-styletransition--docs): Applies inline styles during the transition phases.
 - [CSSTransition](../?path=/docs/components-csstransition--docs): Adds CSS classes during the transition phases for seamless animations.
 - [TransitionGroup](../?path=/docs/components-transitiongroup--docs): Manages a group of transitioning elements.
-
-## Usage Examples
-
-- [Basic Transition Component](../?path=/docs/examples-basic-transition--docs): Demonstrates the functionality of a basic transition component.
-- [Fade Transition with Inline Styles](../?path=/docs/examples-fade-transition-inline-styles--docs): Implements a fading transition using inline styles.
-- [Fade Transition with Class Names](../?path=/docs/examples-fade-transition-class-names--docs): Implements a fading transition using CSS class names.
-- [Transition Group: Conditional Render](../?path=/docs/examples-transition-group-conditional-render--docs): Renders children conditionally with animations.
-- [Transition Group: Item List](../?path=/docs/examples-transition-group-item-list--docs): Renders an array of items with animations.

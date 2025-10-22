@@ -13,17 +13,18 @@ const META: Meta<typeof CSSTransition> = {
   args: {
     in: true,
     appear: true,
-    classNames: 'fade',
     children: (
       <div
         style={{
           width: 100,
           height: 100,
-          background: 'olive',
+          borderRadius: '15%',
+          background: 'linear-gradient(to bottom right, seagreen, teal)',
         }}
       />
     ),
     alwaysMounted: true,
+    classNames: 'fade',
   },
 };
 

@@ -25,7 +25,7 @@ export const Default: StoryObj<typeof META> = {
     return (
       <TransitionGroup duration={1000}>
         <FadeTransition key={sec}>
-          <pre style={{ fontSize: 60 }}>{sec}</pre>
+          <div style={{ fontSize: 60 }}>{sec}</div>
         </FadeTransition>
       </TransitionGroup>
     );

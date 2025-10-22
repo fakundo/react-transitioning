@@ -14,27 +14,27 @@ const META: Meta<typeof StyleTransition> = {
   args: {
     in: true,
     appear: true,
-    styles: {
-      appear: { opacity: 0 },
-      appearActive: { opacity: 1 },
-      enter: { opacity: 0 },
-      enterActive: { opacity: 1 },
-      exit: { opacity: 1 },
-      exitActive: { opacity: 0 },
-      exitDone: { opacity: 0 },
-    },
     children: (
       <div
         style={{
           width: 100,
           height: 100,
-          background: 'olive',
-          transition: `all ${DURATION}ms`,
+          borderRadius: '15%',
+          background: 'linear-gradient(to bottom right, seagreen, teal)',
         }}
       />
     ),
     alwaysMounted: true,
     duration: DURATION,
+    styles: {
+      appear: { opacity: 0 },
+      appearActive: { opacity: 1, transition: `opacity ${DURATION}ms` },
+      enter: { opacity: 0 },
+      enterActive: { opacity: 1, transition: `opacity ${DURATION}ms` },
+      exit: { opacity: 1 },
+      exitActive: { opacity: 0, transition: `opacity ${DURATION}ms` },
+      exitDone: { opacity: 0 },
+    },
   },
 };
 

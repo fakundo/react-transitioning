@@ -21,30 +21,32 @@ export const Default: StoryObj<typeof META> = {
 
     return (
       <>
-        <button onClick={toggleFirstItem} type="button">
-          Toggle first item
-        </button>
-        <button onClick={toggleSecondItem} type="button">
-          Toggle second item
-        </button>
-        <button onClick={toggleThirdItem} type="button">
-          Toggle third item
-        </button>
+        <div className="group">
+          <button onClick={toggleFirstItem} type="button">
+            Toggle first item
+          </button>
+          <button onClick={toggleSecondItem} type="button">
+            Toggle second item
+          </button>
+          <button onClick={toggleThirdItem} type="button">
+            Toggle third item
+          </button>
+        </div>
         <hr />
         <TransitionGroup exit>
           {showFirstItem && (
             <FadeTransition>
-              <pre>FIRST ITEM</pre>
+              <div>First item</div>
             </FadeTransition>
           )}
           {showSecondItem && (
             <FadeTransition>
-              <pre>SECOND ITEM</pre>
+              <div>Second item</div>
             </FadeTransition>
           )}
           {showThirdItem && (
             <FadeTransition>
-              <pre>THIRD ITEM</pre>
+              <div>Third item</div>
             </FadeTransition>
           )}
         </TransitionGroup>

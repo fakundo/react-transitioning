@@ -13,5 +13,5 @@
       "react-transitioning": ["./src"]
     }
   },
-  "include": ["src", "stories"]
+  "include": ["src", "stories", "scripts"]
 }

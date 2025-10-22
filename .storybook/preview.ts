@@ -14,10 +14,10 @@ const preview: Preview = {
       storySort: {
         order: [
           'Introduction',
-          'Components',
-          ['Transition', 'StyleTransition', 'CSSTransition'],
           'Examples',
           ['Basic Transition', 'Fade Transition', ['Inline Styles']],
+          'Components',
+          ['Transition', 'StyleTransition', 'CSSTransition'],
         ],
       },
     },
