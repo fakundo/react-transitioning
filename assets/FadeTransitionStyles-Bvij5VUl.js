@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as s}from"./index-3LwI-BAG.js";import{M as o,S as r,C as a}from"./index-D6dlfkvq.js";import{Default as l}from"./FadeTransitionStyles.stories-BkEIdAWD.js";import"./index-B-SYruCi.js";import"./iframe-CuKLPrTB.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./StyleFadeTransition-BWikRFW8.js";import"./CSSTransition-p54P5Xt1.js";const c=`import { useMemo } from 'react';
+import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as s}from"./index-3LwI-BAG.js";import{M as o,S as r,C as a}from"./index-D_m4Okd4.js";import{Default as l}from"./FadeTransitionStyles.stories-BszptW-P.js";import"./index-B-SYruCi.js";import"./iframe-GMTMH1g8.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./StyleFadeTransition-BWikRFW8.js";import"./CSSTransition-p54P5Xt1.js";const c=`import { useMemo } from 'react';
 import { StyleTransition, StyleTransitionProps, DEFAULT_TRANSITION_DURATION } from 'react-transitioning';
 
 export type FadeTransitionProps = Omit<StyleTransitionProps, 'styles'>;
@@ -47,12 +47,6 @@ export function FadeTransition(props: FadeTransitionProps) {
 `,n.jsxs(e.p,{children:[n.jsx(e.strong,{children:"Reusability"}),":"]}),`
 `,n.jsxs(e.ul,{children:[`
 `,n.jsxs(e.li,{children:["By wrapping the logic inside a reusable ",n.jsx(e.code,{children:"FadeTransition"})," component, you can easily integrate fade animations across your project."]}),`
-`]}),`
-`]}),`
-`,n.jsxs(e.li,{children:[`
-`,n.jsxs(e.p,{children:[n.jsx(e.strong,{children:"Dynamic Animation Phases"}),":"]}),`
-`,n.jsxs(e.ul,{children:[`
-`,n.jsxs(e.li,{children:["The ",n.jsx(e.code,{children:"StyleTransition"})," component applies specific inline styles during each phase of the transition (",n.jsx(e.code,{children:"enter"}),", ",n.jsx(e.code,{children:"enterActive"}),", ",n.jsx(e.code,{children:"exit"}),", etc.)."]}),`
 `]}),`
 `]}),`
 `]}),`

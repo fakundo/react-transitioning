@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as o}from"./index-3LwI-BAG.js";import{M as a,S as s,C as r}from"./index-D6dlfkvq.js";import{Default as c}from"./FadeTransitionClassNames.stories-BOYtZ-Ad.js";import"./index-B-SYruCi.js";import"./iframe-CuKLPrTB.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./CSSTransition-p54P5Xt1.js";const d=`import { CSSTransition, CSSTransitionProps } from 'react-transitioning';
+import{j as n}from"./jsx-runtime-CLpGMVip.js";import{useMDXComponents as o}from"./index-3LwI-BAG.js";import{M as a,S as s,C as r}from"./index-D_m4Okd4.js";import{Default as c}from"./FadeTransitionClassNames.stories-BLrRxmlL.js";import"./index-B-SYruCi.js";import"./iframe-GMTMH1g8.js";import"./index-u5h8o4a9.js";import"./index-C-aVi5AG.js";import"./index-NOh9rqHv.js";import"./CSSTransition-p54P5Xt1.js";const d=`import { CSSTransition, CSSTransitionProps } from 'react-transitioning';
 import './CSSFadeTransition.css';
 
 export type FadeTransitionProps = Omit<CSSTransitionProps, 'classNames'>;
